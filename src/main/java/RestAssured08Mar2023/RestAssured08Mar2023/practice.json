@@ -1,0 +1,22 @@
+{
+  "user": {
+    "id": 123,
+    "name": "John Doe",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown"
+    },
+    "orders": [
+      {
+        "orderId": 1,
+        "product": "Laptop",
+        "price": 999.99
+      },
+      {
+        "orderId": 2,
+        "product": "Phone",
+        "price": 499.99
+      }
+    ]
+  }
+}

@@ -38,7 +38,8 @@ public class StepDefinition {
 		String token=Serenity.sessionVariableCalled("authTokenGlobal");
 		RestAssured.baseURI="https://simple-books-api.glitch.me";
         JSONParser parser = new JSONParser();// in json parser class we have parse method
-        //JSON parsing is the process of converting a JSON object in text format to a Java or Javascript object that can be used inside a program. 
+        // to read a json file, we use json parse
+        //using json parser , we are converting data in jason file to java object
         //In Javascript, the standard way to do this is by using the method JSON.parse()
 
             
@@ -46,10 +47,14 @@ public class StepDefinition {
             // the payload defined in the file is a json object and .parse method is converting to java object
             // you are assigin to the java pbject to reference obj of type Object
 
-            JSONObject jsonObject =  (JSONObject) obj;// here again type casting java object to json object
-	    // Write code here that turns the phrase above into concrete actions
+            JSONObject jsonObject =  (JSONObject) obj;// here again type casting java object to json objec
+            
+            //to do that we will convert java object to json object
+            // Write code here that turns the phrase above into concrete actions
             
             String strobj=jsonObject.toString();
+          //now we have to searilize the payload before hitting any request
+            //so we are converting to string
             System.out.println("the token value is "+ token);
             
             resq=RestAssured.given();
@@ -82,10 +87,21 @@ public class StepDefinition {
 //		}
 	
 //
-//	@Given("I get the order generated using GET call")
-//	public void i_get_the_order_generated_using_get_call() {
-//	    // Write code here that turns the phrase above into concrete actions
-//	    throw new io.cucumber.java.PendingException();
-//	}
+	@Given("To call the getBooks api")
+	public void to_call_the_get_books_api() {
+	    // Write code here that turns the phrase above into concrete actions
+		RestAssured.baseURI="https://simple-books-api.glitch.me";
+		RequestSpecification resq=RestAssured.given();
+		Response res=resq.get("/books");
+		 Serenity.setSessionVariable("resGlobal").to(res);
+	}
 
+@Given("I call the health status api")
+public void i_call_the_health_status_api() {
+    // Write code here that turns the phrase above into concrete actions
+	RestAssured.baseURI="https://simple-books-api.glitch.me";
+	  resq=RestAssured.given();
+	Response res=resq.get("/status");
+	 Serenity.setSessionVariable("resGlobal").to(res);
+}
 }

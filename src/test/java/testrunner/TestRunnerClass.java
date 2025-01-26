@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 	
 	@RunWith(Cucumber.class)
-	@CucumberOptions(features="C:\\Users\\mamid\\eclipse-workspace\\RestAssured08Mar2023\\src\\test\\java\\features\\postOrder.feature",glue= {"stepdefinition"},plugin={"html:target/destination/index.html"},tags="@test")
+	@CucumberOptions(features="C:\\Users\\mamid\\eclipse-workspace\\RestAssured08Mar2023\\src\\test\\java\\features\\postOrder.feature",glue= {"stepdefinition"},plugin={"html:target/destination/index.html"},tags="@test1")
 	public class TestRunnerClass {
 
 	}
